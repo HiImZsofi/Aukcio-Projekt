@@ -49,6 +49,22 @@ public class Festmeny {
         this.elkelt = elkelt;
     }
 
+    public void licit(){
+        if(elkelt){
+            System.out.println("Ez a festmény már elkelt");
+        }
+        else if(this.licitekSzama == 0){
+            this.magasLicit = 100;
+            this.licitekSzama = 1;
+            this.utolsoLicitIdeje = LocalDateTime.now();
+        }
+        else if(this.licitekSzama > 0){
+            this.magasLicit = (int) (magasLicit * 1.1);
+            this.licitekSzama = licitekSzama + 1;
+            this.utolsoLicitIdeje = LocalDateTime.now();
+        }
+    }
+
     @Override
     public String toString() {
         return "Festmeny{" +
