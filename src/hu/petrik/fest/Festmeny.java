@@ -65,6 +65,16 @@ public class Festmeny {
         }
     }
 
+    public int licit(int szam){
+        if (szam > 9 && szam < 101){
+            this.magasLicit = (int) (magasLicit * szam);
+        }
+        else{
+            System.out.println("Hibás adat");
+        }
+        return magasLicit;
+    }
+
     @Override
     public String toString() {
         return "Festmeny{" +
