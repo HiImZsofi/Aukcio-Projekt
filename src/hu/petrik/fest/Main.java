@@ -1,9 +1,6 @@
 package hu.petrik.fest;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -15,7 +12,7 @@ import static java.lang.System.lineSeparator;
 
 public class Main {
     static List<Festmenyek> userfestmenyek;
-    static List<Festmeny> listafestmenyek;
+
     public static void main(String[] args) {
         Festmeny festmeny1 = new Festmeny("asd", "Van Gogh", "reneszansz", 0, LocalDateTime.now(),
                 0, false);
@@ -26,6 +23,8 @@ public class Main {
         userfestmenyek = new ArrayList<>();
         userfestmenyek.add(new Festmenyek("elso", "elsofesto", "stilus1"));
         userfestmenyek.add(new Festmenyek("masodik", "masodikfesto", "stilus2"));
+
+        List<Festmeny> listafestmenyek = new ArrayList<>();
 
       /*  System.out.println("Adjon meg egy számot:");
         Scanner sc = new Scanner(in);
@@ -43,8 +42,27 @@ public class Main {
             System.out.println("Successfully added");
         }*/
 
-        String fajlNev = "festmenyek.csv";
+        File file = new File("festmenyek.csv");
+        Scanner scR;
         try {
+            scR = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        while (scR.hasNextLine()) {
+            String[] temp = scR.nextLine().split(";");
+            listafestmenyek.add(new Festmeny(temp[0], temp[1], temp[2]));
+        }
+
+        for (int i = 0; i < listafestmenyek.size(); i++) {
+            try{
+                System.out.print(listafestmenyek.get(i).toString());
+            }catch (NullPointerException e){
+                System.out.println(e);
+            }
+        }
+        /*try {
             beolvas(fajlNev);
         } catch (FileNotFoundException e) {
             System.err.printf("Hiba miatt nem található az %s fájl\n", fajlNev);
@@ -55,11 +73,13 @@ public class Main {
 
         for (int i = 0; i < 20; i++) {
             listafestmenyek.get((int) (Math.random() * listafestmenyek.size())).licit((int) (Math.random() * 100) + 10);
-        }
+        }*/
+
+
     }
 
-    public static void beolvas(String fajlNev) throws IOException {
-        FileReader fr = new FileReader(fajlNev);
+    public static void beolvas(String fajlNev) {
+        /*FileReader fr = new FileReader(fajlNev);
         BufferedReader br = new BufferedReader(fr);
         String sor = br.readLine();
         while (sor != null && !sor.equals("")) {
@@ -69,7 +89,9 @@ public class Main {
             sor = br.readLine();
         }
         br.close();
-        fr.close();
+        fr.close();*/
+
+
 
     }
 }
