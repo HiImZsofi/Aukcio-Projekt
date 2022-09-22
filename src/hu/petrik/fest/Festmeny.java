@@ -77,14 +77,18 @@ public class Festmeny {
 
     @Override
     public String toString() {
-        return "Festmeny{" +
-                "cim='" + cim + '\'' +
-                ", festo='" + festo + '\'' +
-                ", stilus='" + stilus + '\'' +
-                ", licitekSzama=" + licitekSzama +
-                ", utolsoLicitIdeje=" + utolsoLicitIdeje +
-                ", magasLicit=" + magasLicit +
-                ", elkelt=" + elkelt +
-                '}';
+        String elkelte = "";
+        if(elkelt == true){
+            elkelte = "elkelt";
+            return festo + ":" + cim + "(" + stilus + ")\n" +
+                    elkelte
+                    + magasLicit + "$ - " + utolsoLicitIdeje + "(összesen: " + licitekSzama + " db";
+        }
+        else{
+            elkelte = "nem kelt el";
+            return festo + ":" + cim + "(" + stilus + ")\n" +
+                    elkelte
+                    + magasLicit + "$ - " + utolsoLicitIdeje + "(összesen: " + licitekSzama + " db";
+        }
     }
 }
