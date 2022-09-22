@@ -22,6 +22,11 @@ public class Festmeny {
         this.elkelt = elkelt;
     }
 
+    public Festmeny(String cim, String festo, String stilus) {
+
+
+    }
+
     public String getFesto() {
         return festo;
     }
@@ -92,4 +97,6 @@ public class Festmeny {
                     + magasLicit + "$ - " + utolsoLicitIdeje + "(összesen: " + licitekSzama + " db";
         }
     }
+
+
 }
