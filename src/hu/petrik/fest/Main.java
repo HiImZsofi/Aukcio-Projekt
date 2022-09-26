@@ -89,6 +89,13 @@ public class Main {
             }
         }
         System.out.println(listafestmenyek.get(index).toString());
+
+        for (int i = 0; i < listafestmenyek.size(); i++) {
+            if (listafestmenyek.get(i).getLicitekSzama() > 10){
+                System.out.println(listafestmenyek.get(i).toString());
+            }
+        }
+
     }
 }
 
