@@ -75,6 +75,10 @@ public class Main {
                 listafestmenyek.get(i).setElkelt(true);
             }
         }
+
+        for (int i = 0; i < listafestmenyek.size(); i++) {
+            System.out.println(listafestmenyek.get(i).toString());
+        }
     }
 }
 
