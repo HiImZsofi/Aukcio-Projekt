@@ -79,6 +79,16 @@ public class Main {
         for (int i = 0; i < listafestmenyek.size(); i++) {
             System.out.println(listafestmenyek.get(i).toString());
         }
+
+        int legnagyobb = 0;
+        int index = 0;
+        for (int i = 0; i < listafestmenyek.size(); i++) {
+            if (listafestmenyek.get(i).getMagasLicit() > legnagyobb){
+                legnagyobb += listafestmenyek.get(i).getMagasLicit();
+                index = i;
+            }
+        }
+        System.out.println(listafestmenyek.get(index).toString());
     }
 }
 
