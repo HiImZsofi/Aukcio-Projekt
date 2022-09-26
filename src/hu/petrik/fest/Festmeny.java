@@ -4,27 +4,26 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class Festmeny {
+
     private String cim;
     private String festo;
     private String stilus;
     private int licitekSzama;
-    private LocalDateTime utolsoLicitIdeje;
     private int magasLicit;
-    private Boolean elkelt;
+    private LocalDateTime utolsoLicitIdeje;
+    private boolean elkelt;
 
-    public Festmeny(String cim, String festo, String stilus, int licitekSzama, LocalDateTime utolsoLicitIdeje, int magasLicit, Boolean elkelt) {
+    public Festmeny(String cim, String festo, String stilus) {
         this.cim = cim;
         this.festo = festo;
         this.stilus = stilus;
-        this.licitekSzama = licitekSzama;
-        this.utolsoLicitIdeje = LocalDateTime.now();
-        this.magasLicit = magasLicit;
-        this.elkelt = elkelt;
+        this.licitekSzama = 0;
+        this.magasLicit = 0;
+        this.elkelt = false;
     }
 
-    public Festmeny(String cim, String festo, String stilus) {
-
-
+    public String getCim() {
+        return cim;
     }
 
     public String getFesto() {
@@ -39,19 +38,19 @@ public class Festmeny {
         return licitekSzama;
     }
 
-    public LocalDateTime getUtolsoLicitIdeje() {
-        return utolsoLicitIdeje;
-    }
-
     public int getMagasLicit() {
         return magasLicit;
     }
 
-    public Boolean getElkelt() {
+    public LocalDateTime getUtolsoLicitIdeje() {
+        return utolsoLicitIdeje;
+    }
+
+    public boolean isElkelt() {
         return elkelt;
     }
 
-    public void setElkelt(Boolean elkelt) {
+    public void setElkelt(boolean elkelt) {
         this.elkelt = elkelt;
     }
 
