@@ -48,6 +48,32 @@ public class Main {
             }catch (NullPointerException e){
                 System.out.println(e);
             }
+
+        }
+        Scanner sc = new Scanner(in);
+        int usorszam = -1;
+        while(usorszam > listafestmenyek.size() || usorszam <= 0){
+
+            System.out.println("Sorszám: ");
+            usorszam = Integer.parseInt(sc.nextLine());
+        }
+        String mertek = null;
+        while (mertek != null){
+            System.out.println("Milyen mértékkel szeretne licitálni: ");
+            mertek = (sc.nextLine());
+            usorszam += 1;
+            if(mertek.isEmpty() || mertek == null){
+                listafestmenyek.get(usorszam - 1).licit();
+            }
+            else{
+                listafestmenyek.get(usorszam - 1).licit(Integer.parseInt(mertek));
+            }
+        }
+
+        for (int i = 0; i < listafestmenyek.size(); i++) {
+            if(listafestmenyek.get(i).getLicitekSzama() > 0){
+                listafestmenyek.get(i).setElkelt(true);
+            }
         }
     }
 }
