@@ -96,6 +96,16 @@ public class Main {
             }
         }
 
+        int nemkeltel = 0;
+        for (int i = 0; i < listafestmenyek.size(); i++) {
+            if (!listafestmenyek.get(i).isElkelt()){
+                nemkeltel++;
+            }
+        }
+        System.out.printf("Összesen %d festmény nem kelt el", nemkeltel);
+
+
+
     }
 }
 
