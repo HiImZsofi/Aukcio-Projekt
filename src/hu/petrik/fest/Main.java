@@ -3,6 +3,7 @@ package hu.petrik.fest;
 import java.io.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -104,6 +105,11 @@ public class Main {
         }
         System.out.printf("Összesen %d festmény nem kelt el", nemkeltel);
 
+        Collections.reverse(listafestmenyek);
+        Collections.sort(listafestmenyek, Collections.reverseOrder());
+        for (int i = 0; i < listafestmenyek.size(); i++) {
+            System.out.println(listafestmenyek.get(i).toString());
+        }
 
 
     }
