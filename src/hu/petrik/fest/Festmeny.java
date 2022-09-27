@@ -67,6 +67,10 @@ public class Festmeny {
             this.magasLicit = (int) (magasLicit * 1.1);
             this.licitekSzama = licitekSzama + 1;
             this.utolsoLicitIdeje = LocalDateTime.now();
+        } else{
+            int ujlicit = (int)(this.magasLicit * 1.1);
+            String szovegesLicit = String.valueOf(ujlicit);
+            StringBuilder veglegesLicit = new StringBuilder(szovegesLicit.substring(0, 2));
         }
     }
 
