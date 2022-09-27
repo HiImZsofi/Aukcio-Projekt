@@ -1,6 +1,7 @@
 package hu.petrik.fest;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class Festmeny {
@@ -86,8 +87,10 @@ public class Festmeny {
 
     @Override
     public String toString() {
+        //return String.format("%S: %S (%S)\n")
+        DateTimeFormatter formatum = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String elkelte = "";
-        if(elkelt == true){
+        if(elkelt){
             elkelte = "elkelt";
             return festo + ":" + cim + "(" + stilus + ")\n" +
                     elkelte
